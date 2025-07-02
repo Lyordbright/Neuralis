@@ -192,10 +192,11 @@ section{
 /* section=two start */
 .section-two-con{
     text-align: center;
+    height: 20rem;
 }
 .section-two{
     width: 1100px;
-    padding-left: 25rem;
+    padding-left: 18rem;
 }
 .section-two h1{
     width: 274;
@@ -318,8 +319,8 @@ section{
         }
         .section-two p{
             font-size: 14px;
-            height: 110px;
         }
+
 }
 @media screen and (max-width: 600px) {
      .section-two{
@@ -423,12 +424,12 @@ section{
     @media screen and (max-width: 360px) {
      .section-two{
          width: 360px;
-         padding-left: 5rem;
+         padding-left: 2rem;
         }
         .section-two h1{
             font-size: 16px;
             width: 274;
-            height: 55px;
+            height: 50px;
         }
         .section-two h3{
             font-size: 25px;
@@ -442,5 +443,151 @@ section{
     }
 }
 /* section-two medq end */
-/* section=two end */
+/* section-two end */
+
+/* section-three start */
+.section-three-con{
+    height: 75rem;
+}
+.section-three h1{
+    text-align: center;
+    font-family: Work Sans;
+    font-weight: 400;
+    font-size: 40px;
+    color: #030e49;
+    line-height: 140%;
+    letter-spacing: 0%;
+}
+.card-con{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    padding-left: 5rem;
+    padding-top: 2rem;
+}
+.card{
+    width: 20rem;
+    box-shadow: 0px 1px 3px black;
+    border-radius: 9px;
+}
+.card img{
+    width: 100%;
+    border-top-right-radius: 9px;
+    border-top-left-radius: 9px;
+    object-fit: cover;
+}
+.card-body h5{
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    color: #030e49;
+    line-height: 140%;
+    letter-spacing: 0%;
+    padding: .6rem;
+}
+.card-body p{
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0%;
+    padding: .6rem;
+}
+/* section-three mdq start */
+@media screen and (max-width: 950px) {
+    .card-con{
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        padding: 3rem;
+    }
+}
+@media screen and (max-width: 850px) {
+    .card-con{
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+}
+@media screen and (max-width: 890px) {
+    .card-con{
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+        padding: 2rem;
+    }
+    
+}
+@media screen and (max-width: 768px) {
+    .card-con{
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+        padding: 2rem;
+    }
+    .section-three-con{
+      height: 105rem;
+    }
+}
+@media screen and (max-width: 730px) {
+    .card-con{
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    .card-body p{
+        font-size: 12px;
+    }
+    .card{
+        width: 300px;
+    }
+}
+@media screen and (max-width: 600px) {
+      .card-con{
+          grid-template-columns: 1fr;
+          padding: 10rem;
+          padding-top: 2rem;
+        }
+    }
+@media screen and (max-width: 528px) {
+       .card-con{
+          grid-template-columns: 1fr;
+          padding: 8rem;
+          padding-top: 1rem;
+        }
+        @media screen and (max-width: 460px) {
+           .card-con{
+          grid-template-columns: 1fr;
+          padding: 6rem;
+          padding-top: 1rem;
+        }
+        .section-three-con{
+           height: 133rem;
+        }
+        }
+    @media screen and (max-width: 390px) {
+        .card-con{
+          grid-template-columns: 1fr;
+          padding: 4rem;
+          padding-top: 1rem;
+        }
+    }
+    @media screen and (max-width: 375px) {
+     .card-con{
+          grid-template-columns: 1fr;
+          padding: 2rem;
+          padding-top: 1rem;
+        }
+    }
+    @media screen and (max-width: 360px) {
+     .card-con{
+          grid-template-columns: 1fr;
+          padding: rem;
+          padding-top: 1rem;
+        }
+        .section-three-con{
+          height: 105rem;
+        }
+    }
+}
+/* section-three mdq end */
+/* section-three end */
 /* main body end */
