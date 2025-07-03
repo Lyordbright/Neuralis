@@ -41,17 +41,17 @@
         <div class="nav-div">
             <h1>Neur<span>alis</span></h1>
         </div>
-        <div class="nav-left">
+        <div class="nav-left" id="navLinks">
             <h3> <a href="">Home</a> </h3>
             <h3> <a href="">About Us</a> </h3>
-            <h3> <a href="">Services</a> </h3>
+            <h3> <a href="#services">Services</a> </h3>
             <h3> <a href="">Doctors</a> </h3>
             <h3> <a href="">Contacts</a> </h3>
             <h3> <a href="">Appointment</a> </h3>
         </div>
         <div class="nav-right">
-            <button onclick="">Log in</button><br>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="menu" style="color: white; height: 10rem;">
+            <a href="./pages/signup.html"><button>Sign-Up</button></a><br>
+            <svg onclick="toggleMenu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="menu" style="color: white; height: 10rem;">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
         </div>
@@ -77,6 +77,7 @@
                 </button>
             </div>
         </div>
+        <div id="services"></div>
         <div class="section-three-con">
             <div class="section-three">
                 <h1>Our Services</h1>
@@ -174,5 +175,7 @@
         </div>
     </footer>
     <!-- Footer end -->
+
+    <script src="./javascript/index.js"></script>
 </body>
 </html>

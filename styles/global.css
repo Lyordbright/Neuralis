@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+html{
+    scroll-behavior: smooth;
+}
 /* hearder start */
 header {
     width: 100%;
@@ -171,6 +174,7 @@ nav{
 }
 .nav-right .menu{
     display: none;
+    cursor: pointer;
     transform: rotate(180deg);
 }
 /* navbar media query start */
