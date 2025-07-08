@@ -38,6 +38,14 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebas
   //  buttonEl1 .disabled = true;
   const email = emailEL .value.trim();
   const password = passwordEL.value.trim();
+  const nameEl = document.getElementById("fullName");
+  const phoneEl = document.getElementById("phoneNumberInp");
+  const addressEl = document.getElementById("address");
+  const allergiesEl = document.getElementById("allergies");
+  const emmergencyContactNameEl = document.getElementById("contactName");
+  const emergencyNumberEl = document.getElementById("contactNum");
+  const ageEl = document.getElementById("age");
+  const genderEl = document.getElementById("gender")
 
   
   if (!navigator.onLine) {
@@ -69,7 +77,15 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebas
 
     const newUser = {
       id: user.uid,
-      email: email
+      email: email,
+      name: nameEl.value.trim(),
+      phone: phoneEl.value.trim(),
+      address: addressEl.value.trim(),
+      allergies: allergiesEl.value.trim(),
+      emmergencyContact: emmergencyContactNameEl.value.trim(),
+      emergencyNumber: emergencyNumberEl.value.trim(),
+      age: ageEl.value.trim(),
+      gender: genderEl.value.trim(),
     };
 
     const docRef = doc(userColRef, user.uid);

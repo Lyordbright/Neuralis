@@ -51,7 +51,7 @@
         </div>
         <div class="nav-right">
             <button onclick="">Sign-In</button><br>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="menu" style="color: white; height: 10rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="menu" style="color: white; height: 8rem;">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
         </div>
@@ -80,8 +80,25 @@
                 <input type="password" class="form-control" id="passwordInp" placeholder="Enter your Password" required>
             </div>
             <div>
+                <label for="age" class="form-label">Age</label><br>
+                <input type="number" class="form-control" id="age" placeholder="Enter your age" required>
+            </div>
+            <div>
+                <label for="gender" class="form-label">Gender</label><br>
+                <select name="gender" id="gender" style="width: 60%;">
+                    <option value="select" disabled selected>Select your Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="null">Prefer not to say</option>
+                </select>
+            </div>
+            <div>
                 <label for="allergies" class="form-label">Allergies</label><br>
                 <input type="text" class="form-control" id="allergies" placeholder="If any">
+            </div>
+            <div>
+                <label for="address" class="form-label">Address</label><br>
+                <input type="text" class="form-control" id="address" placeholder="Enter your address" required>
             </div>
             <div>
                 <label for="emergencyContactName" class="form-label">Emergency Contact Name</label><br>

@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    /* width: 100%; */
+    height: 100vh;
+}
+aside{
+    position: fixed;
+    left: 0;
+    width: 300px;
+    background-color: rgb(5, 5, 32);
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25rem;
+}
+.upper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.upper a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+.lower{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.lower a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+main{
+  position: relative;
+    margin-left: 230px;
+    width: calc(100% - 300px);
+    padding: 20px;
+}

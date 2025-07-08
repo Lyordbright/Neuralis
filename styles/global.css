@@ -216,13 +216,13 @@ nav{
         display: inline-block;
     }
     .nav-right{
-        width: 30%;
+        width: 50%;
         justify-content: space-between;
         gap: 0.5rem;
     }
     .nav-right button{
         height: 40px;
-        width: 200px;
+        width: 120px;
         font-size: 18px;
     }
     .nav-right .menu{
@@ -236,7 +236,7 @@ nav{
     }
     .nav-right button{
         height: 30px;
-        width: 180px;
+        width: 100px;
         font-size: 12px;
     }
 }
