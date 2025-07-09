@@ -5,32 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Appointment History</title>
   <link rel="stylesheet" href="../styles/history.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <div class="container">
-    <aside>
-      <div class="upper">
-        <a href="./dashboard.html"><i class="fa-solid fa-house"></i>Dashboard</a>
-        <a href="./appoinment.html"><i class="fa-solid fa-calendar-check"></i> Appointments</a>
-        <a href=""><i class="fa-solid fa-clock-rotate-left"></i>Appointment History</a>
-      </div>
-      <div class="lower">
-        <a href="./profile.html"><i class="fa-solid fa-user"></i>Profile</a>
-        <a href="./settings.html"><i class="fa-solid fa-gear" style="color: white;"></i>Settings</a>
-      </div>
-    </aside>
-    <main class="main-content" id="main-content">
+   <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="./dashboard.html"><i class="fa-solid fa-house"></i>Dashboard</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="./appoinment.html"><i class="fa-solid fa-calendar-check"></i>Appointments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="./history.html"><i class="fa-solid fa-clock-rotate-left"></i>Appointments History</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./profile.html"><i class="fa-solid fa-user"></i>Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./settings.html"><i class="fa-solid fa-gear"></i>Settings</a>
+        </li>
+    </div>
+  </div>
+  </nav>
+
+  <main class="main-content" id="main-content">
       <div class="hearder">
-        <h1 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Appointment History</h1>
+        <h1 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; text-align: center;">Appointment History</h1>
       </div><br><br>
-      <div id="history-container">
-        
+      <div id="history-container" class="doc-con">
+        <!-- Appointment cards will be dynamically inserted here -->
      </div>
     </main>
-  </div>
+
+
+
 
 
   <script type="module" src="../javascript/history.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -3,64 +3,29 @@
     padding: 0;
     box-sizing: border-box;
 }
-.container{
-    /* width: 100%; */
-    height: 100vh;
+.doc-con{
+    display: grid;
+    /* grid-template-columns: 1fr 1; */
+    padding-left: 20rem;
 }
-aside{
-    position: fixed;
-    left: 0;
-    width: 300px;
-    background-color: rgb(5, 5, 32);
-    color: white;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 25rem;
-}
-.upper{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-.upper a{
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-}
-.lower{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.lower a{
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-}
-main{
-  position: relative;
-    margin-left: 550px;
-    width: calc(100% - 300px);
-    /* height: 100vh; */
-    /* padding: 20px; */
-    /* background-color: #f0f0f0; */
-}
-#history-container {
-    padding-right: 20rem;
-}
-.appointment-card {
+.appointment-card{
+    width: 60%;
     background-color: #030e49;
-    width: 70%;
     border-radius: 5px;
-    padding: 25px;
     color: white;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 20px;
     font-family: cursive;
+    text-align: center;
 }
-.appointment-card .delete-btn{
+.btn-container{
+    padding-left: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.btn-container .delete-btn{
     background-color: rgba(255, 0, 0, 0.87);
     color: white;
     border: none;
@@ -69,7 +34,7 @@ main{
     cursor: pointer;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.appointment-card .update-btn{
+.btn-container .update-btn{
     background-color: gray;
     color: white;
     border: none;
@@ -77,4 +42,20 @@ main{
     border-radius: 5px;
     cursor: pointer;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+    .doc-con{
+        padding-left: 13rem;
+        grid-template-columns: 1fr;
+    }
+    .appointment-card{
+        width: 68%;
+        grid-template-columns: 1fr 1fr;
+    }
+    .btn-container{
+        padding-left: 0;
+        justify-content: center;
+    }
+    
 }

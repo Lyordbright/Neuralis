@@ -34,7 +34,7 @@ let currentUser;
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     console.log("User UID:", user.uid);
-    const userDocRef = doc(DB, "user", user.uid); // ✅ FIXED
+    const userDocRef = doc(DB, "user", user.uid); 
     const userSnapshot = await getDoc(userDocRef);
 
     if (!userSnapshot.exists()) {
@@ -52,7 +52,7 @@ onAuthStateChanged(auth, async (user) => {
     historyEl.innerHTML = "";
 
     if (appointmentSnap.empty) {
-      historyEl.textContent = "<p>No appointments found.</p>";
+      historyEl.textContent = `No appointments found.`;
       return;
     }
 
@@ -60,14 +60,16 @@ onAuthStateChanged(auth, async (user) => {
       const appt = doc.data();
       historyEl.innerHTML += `
         <div class="appointment-card">
-          <h4><strong>Doctors Name:</strong><br><p>${appt.doctorName}</p></h4>
-          <h4><strong>Patient Name:</strong><br>${appt.patientName}</h4>
+          <p><strong>Doctors Name:</strong><br>${appt.doctorName}</p>
+          <p><strong>Patient Name:</strong><br>${appt.patientName}</p>
           <p><strong>Date:</strong><br>${appt.date}</p>
           <p><strong>Time:</strong><br>${appt.time}</p>
           <p><strong>Gender:</strong><br>${appt.gender}</p>
           <p><strong>Reason:</strong><br>${appt.reason}</p>
+          <div class="btn-container">
           <button class="delete-btn">Cancel</button>
           <button class="update-btn">Update</button>
+          </div>
         </div><br>
       `;
     });

@@ -3,44 +3,4 @@
     padding: 0;
     box-sizing: border-box;
 }
-.container{
-    width: 100%;
-    height: 100vh;
-}
-aside{
-    position: fixed;
-    width: 300px;
-    background-color: rgb(5, 5, 32);
-    color: white;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 27rem;
-}
-.upper{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.upper a{
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-}
-.lower{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.lower a{
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-}
-main{
-    margin-left: 300px;
-    width: calc(100% - 300px);
-    /* height: 100vh; */
-    padding: 20px;
-    /* background-color: #f0f0f0; */
-}
+
