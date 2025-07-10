@@ -1,181 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neuropluse Auralis Institute</title>
-    <link rel="stylesheet" href="./styles/index.css">
-    <link rel="stylesheet" href="./styles/global.css">
-    <link rel="shortcut icon" href="" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neuropluse Auralis Institute</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --brand-blue: #1F2B6C;
+      --brand-light: #BFD2F8;
+    }
+    body { margin-top: 4.5rem; }
+    .header-bar { background: #f8f9fa; padding: .75rem 0; }
+    .header-bar h1 { font-family: 'Yeseva One', serif; }
+    .hero {
+      height: 60vh; background: url('./media/section_one_img.jpg') center/cover no-repeat;
+      display: flex; align-items: center; color: #fff; text-shadow: 0 0 10px rgba(0,0,0,.7);
+    }
+    .btn-brand { background: var(--brand-light); color: var(--brand-blue); }
+    .services .card:hover { transform: translateY(-5px); transition: .3s; }
+    footer { background: #222; color: #ccc; padding: 2rem 0; }
+    footer a { color: #fff; text-decoration: none; }
+    section.bg-light {
+  background: #f8f9fa;
+}
+.display-4 {
+  font-size: 2.5rem;
+}
+.lead {
+  font-size: 1.25rem;
+}
+
+  </style>
 </head>
 <body>
-    <!-- HEARDER START -->
-    <header>
-        <div class="header-con">
-            <div class="header-left">
-                <h1>Neur<span>alis</span></h1>
-            </div>
-            <div class="header-right">
-             <div class="header-right-inner"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" style="height: 2.7rem;">
-                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
-                 </svg> <div><h3 style="color: rgb(3, 3, 185);;">Emergency</h1> <h3 style="color:  rgb(31, 86, 250);">(+234)7061423476</h3></div>
-             </div><br>
-             <div class="header-right-inner"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" style="height: 3rem;">
-                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                  </svg>
-                  <div><h3 style="color: rgb(3, 3, 185);">Work Hour</h3> <h3 style="color:  rgb(31, 86, 250);">24/7 Everyday</h3></div>
-             </div>
-             <div class="header-right-iner"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" style="height: 3rem;">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" color="blue" />
-                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/>
-                  </svg>
-                  <div><h3 style="color: rgb(3, 3, 185);">Location</h3> <h3 style="color:  rgb(31, 86, 250);">Plot 12 Auralis Way Lekki</h3> </div>
-             </div>
-            </div>
-        </div>
-    </header>
-    <!-- HEARDER END -->
 
-    <!-- Navbar Start -->
-    <nav>
-        <div class="nav-div">
-            <h1>Neur<span>alis</span></h1>
-        </div>
-        <div class="nav-left" id="navLinks">
-            <h3> <a href="">Home</a> </h3>
-            <h3> <a href="">About Us</a> </h3>
-            <h3> <a href="#services">Services</a> </h3>
-            <h3> <a href="">Doctors</a> </h3>
-            <h3> <a href="">Contacts</a> </h3>
-            <h3> <a href="">Appointment</a> </h3>
-        </div>
-        <div class="nav-right">
-            <a href="./pages/signup.html"><button>Sign-Up</button></a><br>
-            <svg onclick="toggleMenu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="menu" style="color: white; height: 10rem;">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-        </div>
-    </nav>
-  <!-- Navbar End -->
+  <!-- Top info bar -->
+  <div class="container header-bar d-flex justify-content-between flex-wrap align-items-center">
+    <!-- <h1 class="fw-bold">Neur<span class="text-primary">alis</span></h1> -->
+    <div class="d-flex flex-wrap gap-3">
+      <div class="d-flex align-items-center"><i class="fa-solid fa-phone text-primary me-2"></i>
+        <div><small>Emergency</small><br><strong>(+234)7061423476</strong></div>
+      </div>
+      <div class="d-flex align-items-center"><i class="fa-solid fa-clock text-primary me-2"></i>
+        <div><small>Work Hours</small><br><strong>24/7 Everyday</strong></div>
+      </div>
+      <div class="d-flex align-items-center"><i class="fa-solid fa-location-dot text-primary me-2"></i>
+        <div><small>Location</small><br><strong>Plot 12 Auralis Way, Lekki</strong></div>
+      </div>
+    </div>
+  </div>
 
-  <!-- Main Body Start -->
-   <section>
-        <div class="section-one-con" style="display: non;">
-           <div class="section-one">
-              <h3>Caring For Life</h3><br>
-             <h1>Leading the Way <br>in Medical Excellence</h1>
-             <button><a href="">Our Services</a></button>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Neur<span class="text-light">alis</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="./pages/signup.html">Appointment</a></li>
+        </ul>
+        <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#signinModal">
+         <i class="fa-solid fa-user"></i> Sign‑In
+        </button>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <!-- Hero Section -->
+ <section class="py-5 bg-light">
+  <div class="container d-flex flex-wrap align-items-center">
+    <div class="col-md-6">
+      <h3 class="text-primary">Welcome to Neuropluse Auralis Institute</h3>
+      <h1 class="display-4 mb-3">Leading the Way in Medical Excellence</h1>
+      <p class="lead mb-4">
+        Our facility blends advanced neurological science with compassion, offering personalized care in a healing environment.
+      </p>
+      <a href="#services" class="btn btn-primary btn-lg">Explore Our Services</a>
+    </div>
+    <div class="col-md-6 text-center">
+      <img src="./media/hero-section.webp"  alt="" class="img-fluid rounded shadow">
+    </div>
+  </div>
+ </section>
+
+
+  <!-- About -->
+  <section class="py-5 bg-light text-center">
+    <div class="container">
+      <h2>Welcome to Neuropluse Auralis Institute</h2>
+      <p class="lead mx-auto" style="max-width:800px;">
+        At Neuropluse Auralis Institute, we believe that exceptional care begins with understanding...
+      </p>
+      <a href="#" class="btn btn-outline-primary">Learn More <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-5 services">
+    <div class="container">
+      <h2 class="text-center mb-5">Our Services</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="./media/Pharmacy Design and Installation.jpeg" class="card-img-top" alt="Ambulance">
+            <div class="card-body text-center">
+              <h5>Pharmacy & Medication</h5>
+              <p>Our on-site pharmacy offers quick access to prescribed medications with expert guidance for safe usage and dosage clarity.</p>
+            </div>
           </div>
         </div>
-        <div class="section-two-con">
-            <div class="section-two">
-                <h1>Welcome to Neuropluse Auralis Institute</h1>
-                <h3>A Great Place to Receive Care</h3>
-                <p>At Neuropluse Auralis Institute, we believe that exceptional care begins with deep understanding. Our facility is more than just a medical center—it's a sanctuary of healing where advanced neurological science meets genuine compassion. From the moment you walk through our doors, you’re welcomed into an environment designed to support your physical, emotional, and mental well-being. With a team of experienced specialists, state-of-the-art diagnostic tools, and a commitment to personalized treatment, we strive to offer care that goes beyond expectations.</p>
-                <button><a href="">Learn More</a><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6" style="height: 1rem; color: #1F2B6C;">
-                 <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" /></svg>
-                </button>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="./media/Free Photo _ African american medic and pregnant woman talking.jpeg" class="card-img-top" alt="Check‑Up">
+            <div class="card-body text-center">
+              <h5>Free Check‑Up</h5>
+              <p>Routine health screenings to keep you informed.</p>
             </div>
+          </div>
         </div>
-        <div id="services"></div>
-        <div class="section-three-con">
-            <div class="section-three">
-                <h1>Our Services</h1>
-               <div class="card-con">
-                  <div class="card">
-                     <img src="./media/Best Ambulance Services in Delhi.jpeg" alt="">
-                      <div class="card-body">
-                         <h5 class="card-title">Ambulance Services</h5>
-                         <p class="card-text">At Neuralis, our ambulance services are available 24/7, ensuring rapid medical response when every second counts. Our ambulances are fully equipped and staffed by trained professionals for safe, immediate care during transit.</p>
-                      </div>
-                   </div>
-                  <div class="card">
-                     <img src="./media/Free Photo _ African american medic and pregnant woman talking.jpeg" alt="">
-                      <div class="card-body">
-                         <h5>Free Check-Up</h5>
-                         <p>We offer free routine health check-ups to help individuals stay informed, detect issues early, and maintain overall well-being—because your health matters every day.</p>
-                      </div>
-                   </div>
-                  <div class="card">
-                     <img src="./media/Operating Room stock image_ Image of emergency, hospital - 9614055.jpeg" alt="" style="height: 13rem;">
-                      <div class="card-body">
-                         <h5>Emergency Room</h5>
-                         <p>Our Emergency Room operates 24/7, ready to handle life-threatening conditions with speed and precision—from accidents to sudden illness.</p>
-                      </div>
-                   </div>
-                  <div class="card">
-                     <img src="./media/experienced doctor.jpeg" alt="" style="height: 14rem;">
-                      <div class="card-body">
-                         <h5>Experienced Doctors</h5>
-                         <p>Our skilled medical team offers decades of experience across various specialties, ensuring expert care and personalized attention for every patient.</p>
-                      </div>
-                   </div>
-                  <div class="card">
-                     <img src="./media/Pharmacy Design and Installation.jpeg" alt="">
-                      <div class="card-body">
-                         <h5>Pharmacy & Medication</h5>
-                         <p>Our on-site pharmacy offers quick access to prescribed medications with expert guidance for safe usage and dosage clarity.</p>
-                      </div>
-                   </div>
-               </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="./media/Whether you’re focused on patient acquisition or trying to grow your private practice, a creative and integrative marketing strategy is key to your success_.jpg" class="card-img-top" alt="Emergency">
+            <div class="card-body text-center">
+              <h5>Experienced Doctors</h5>
+              <p>Experienced doctors delivering trusted, expert care every day.</p>
             </div>
+          </div>
         </div>
-        <!-- lorem30000 -->
-    </section>
-  <!-- Main Body End -->
-
-  <!-- Footer start -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section-about">
-                <h2>About Us</h2>
-                <p>We are committed to providing top-quality healthcare with advanced medical facilities and expert
-                    professionals. Your health, our priority.</p>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="./media/Best Ambulance Services in Delhi.jpeg" class="card-img-top" alt="Ambulance">
+            <div class="card-body text-center">
+              <h5>Ambulance Services</h5>
+              <p>24/7 rapid response with fully equipped ambulances.</p>
             </div>
-
-            <div class="footer-section quick-links">
-                <h2>Quick Links</h2>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="./pages/login.html">Book an Appointment</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section contact">
-                <h2>Contact Info</h2>
-                <p>📍 Plot 12 Auralis Way Lekki</p>
-                <p>📞 +234 7061423476</p>
-                <p>📧 auralis@gmail.com</p>
-                <p>🕒 Open 24/7</p>
-            </div>
-
-            <div class="footer-section emergency">
-                <h2>🚑 Emergency</h2>
-                <p>For urgent medical assistance, call:</p>
-                <h3>+123 999 9999</h3>
-            </div>
-
-            <div class="footer-section social-media">
-                <h2>Follow Us</h2>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
+          </div>
         </div>
-
-        <div class="footer-bottom">
-            <p>© 2025 Neuralis. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms &
-                    Conditions</a></p>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <img src="./media/Free Photo _ African american medic and pregnant woman talking.jpeg" class="card-img-top" alt="Check‑Up">
+            <div class="card-body text-center">
+              <h5>Free Check‑Up</h5>
+              <p>Routine health screenings to keep you informed.</p>
+            </div>
+          </div>
         </div>
-    </footer>
-    <!-- Footer end -->
+      </div>
+    </div>
+  </section>
 
-    <script src="./javascript/index.js"></script>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-md-3">
+          <h5>About Us</h5>
+          <p>Committed to top‑quality healthcare with advanced facilities.</p>
+        </div>
+        <div class="col-md-3">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#">Book Appointment</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>Contact Info</h5>
+          <p>📍 Plot 12 Auralis Way, Lekki<br>📞 +234 7061423476<br>📧 auralis@gmail.com<br>🕒 Open 24/7</p>
+        </div>
+        <div class="col-md-3">
+          <h5>Follow Us</h5>
+          <a href="#" class="me-2"><i class="fab fa-facebook fa-lg"></i></a>
+          <a href="#" class="me-2"><i class="fab fa-twitter fa-lg"></i></a>
+          <a href="#" class="me-2"><i class="fab fa-instagram fa-lg"></i></a>
+          <a href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+        </div>
+      </div>
+      <hr class="my-4" />
+      <p class="text-center mb-0">© 2025 Neuropluse Auralis Institute. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Sign-Up Modal -->
+  <!-- Sign-Up Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <form class="modal-content p-4" id="signUpForm">
+      <div class="modal-header border-0">
+        <h4 class="modal-title w-100 text-center text-primary">Create Your Account</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="fullName" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="fullName" placeholder="John Doe" required>
+          </div>
+          <div class="col-md-6">
+            <label for="emailInp" class="form-label">Email</label>
+            <input type="email" class="form-control" id="emailInp" placeholder="example@email.com" required>
+          </div>
+          <div class="col-md-6">
+            <label for="phoneNumberInp" class="form-label">Phone Number</label>
+            <input type="number" class="form-control" id="phoneNumberInp" placeholder="08012345678" minlength="11" maxlength="11" required>
+          </div>
+          <div class="col-md-6">
+            <label for="passwordInp" class="form-label">Password</label>
+            <input type="password" class="form-control" id="passwordInp" placeholder="Choose a password" required>
+          </div>
+          <div class="col-md-4">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" class="form-control" id="age" required>
+          </div>
+          <div class="col-md-8">
+            <label for="gender" class="form-label">Gender</label>
+            <select id="gender" class="form-select" required>
+              <option value="select" disabled selected>Select your Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="null">Prefer not to say</option>
+            </select>
+          </div>
+          <div class="col-md-12">
+            <label for="allergies" class="form-label">Allergies (if any)</label>
+            <input type="text" class="form-control" id="allergies" placeholder="e.g., Penicillin, Dust, None">
+          </div>
+          <div class="col-md-12">
+            <label for="address" class="form-label">Home Address</label>
+            <input type="text" class="form-control" id="address" placeholder="123 Main St, City" required>
+          </div>
+          <div class="col-md-6">
+            <label for="contactName" class="form-label">Emergency Contact Name</label>
+            <input type="text" class="form-control" id="contactName" required>
+          </div>
+          <div class="col-md-6">
+            <label for="contactNum" class="form-label">Emergency Contact Number</label>
+            <input type="text" class="form-control" id="contactNum" minlength="11" maxlength="11" required>
+          </div>
+        </div>
+        <p id="error-message" class="mt-3 text-danger text-center"></p>
+      </div>
+       <div class="d-grid">
+          <button type="submit" id="signup-btn" class="btn btn-primary">Sign Up</button>
+        </div>
+      <div class="modal-footer border-0 justify-content-between">
+           <p class="mb-0">
+             Already have an account?
+             <a href="#" data-bs-toggle="modal" data-bs-target="#signinModal" data-bs-dismiss="modal">Sign In</a>
+           </p>
+     </div>
+    </form>
+  </div>
+</div>
+
+<!-- Sign-In Modal -->
+<div class="modal fade" id="signinModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-4">
+      <h3 class="text-center mb-4">Sign In</h3>
+      <form id="signInForm">
+        <div class="mb-3">
+          <label for="emailInp" class="form-label">Email</label>
+          <input type="email" class="form-control" id="signinEmail" placeholder="Enter your email" required />
+        </div>
+        <div class="mb-3">
+          <label for="passwordInp" class="form-label">Password</label>
+          <input type="password" class="form-control" id="signinPassword" placeholder="Enter your password" required />
+        </div>
+        <p id="error-message" class="text-danger text-center mb-3"></p>
+        <div class="d-grid">
+          <button type="submit" id="signin-btn" class="btn btn-primary">Sign In</button>
+        </div>
+        <p class="mt-3 text-center">Don't have an account? 
+          <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal" data-bs-dismiss="modal">Sign Up</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+   <script type="module" src="./javascript/signup.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
