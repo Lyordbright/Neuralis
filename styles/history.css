@@ -1,61 +1,26 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-.doc-con{
-    display: grid;
-    /* grid-template-columns: 1fr 1; */
-    padding-left: 20rem;
-}
-.appointment-card{
-    width: 60%;
-    background-color: #030e49;
-    border-radius: 5px;
-    color: white;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 20px;
-    font-family: cursive;
-    text-align: center;
-}
-.btn-container{
-    padding-left: 3rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.btn-container .delete-btn{
-    background-color: rgba(255, 0, 0, 0.87);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.btn-container .update-btn{
-    background-color: gray;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.doc-con {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
 }
 
-@media screen and (max-width: 768px) {
-    .doc-con{
-        padding-left: 13rem;
-        grid-template-columns: 1fr;
-    }
-    .appointment-card{
-        width: 68%;
-        grid-template-columns: 1fr 1fr;
-    }
-    .btn-container{
-        padding-left: 0;
-        justify-content: center;
-    }
-    
+.card {
+  border: 1px solid #ccc;
+  transition: 0.3s;
+  border-radius: 8px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.card-body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.btn-sm {
+  font-size: 0.8rem;
 }

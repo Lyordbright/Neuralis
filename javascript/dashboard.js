@@ -107,8 +107,10 @@ async function loadAppointments(uid) {
   let total = 0, completed = 0, pending = 0;
   let count = 0;
 
-  upcomingEl.innerHTML = `No upcoming appointments found.`;
-
+  if (snap.empty) {
+    upcomingEl.innerHTML = `<p class="text-center">No appointment history found.</p>`;
+    return;
+  }
   snap.forEach(doc => {
     const data = doc.data();
     total++;

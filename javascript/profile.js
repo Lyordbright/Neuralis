@@ -109,3 +109,26 @@ form.addEventListener("submit", async (e) => {
     alert("An error occurred while updating your profile.");
   }
 });
+
+// === DARK/LIGHT MODE TOGGLE ===
+const themeToggleBtn = document.getElementById("theme-toggle");
+const body = document.body;
+
+// Load saved preference
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") {
+  body.classList.add("dark-mode");
+  themeToggleBtn.innerHTML = `<i class="fa-solid fa-sun"></i> Light`;
+}
+
+// Toggle theme
+themeToggleBtn.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
+  const isDark = body.classList.contains("dark-mode");
+
+  themeToggleBtn.innerHTML = isDark
+    ? `<i class="fa-solid fa-sun"></i> Light`
+    : `<i class="fa-solid fa-moon"></i> Dark`;
+
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});

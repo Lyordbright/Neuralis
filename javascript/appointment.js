@@ -1,3 +1,4 @@
+// ---------------------- SEARCH FUNCTION ----------------------
 document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.querySelector("input[type='search']");
   const doctorCards = document.querySelectorAll(".doc-con .card");
@@ -8,118 +9,133 @@ document.addEventListener("DOMContentLoaded", function () {
     doctorCards.forEach(card => {
       const name = card.querySelector(".card-title").textContent.toLowerCase();
       const specialty = card.querySelector(".card-text").textContent.toLowerCase();
-
       const matches = name.includes(searchValue) || specialty.includes(searchValue);
       card.style.display = matches ? "block" : "none";
     });
   });
+
+  // ---------------------- PREFILL DOCTOR NAME ----------------------
+  const modal = document.getElementById("exampleModal");
+  modal.addEventListener("show.bs.modal", function (event) {
+    const button = event.relatedTarget;
+    const card = button.closest(".card");
+    const doctorName = card.querySelector(".card-title").textContent;
+
+    const inputDoctor = document.getElementById("doctors-name");
+    inputDoctor.value = doctorName;
+  });
 });
 
 
-// firebase
-
+// ---------------------- FIREBASE SETUP ----------------------
 import {
   getFirestore,
   collection,
   addDoc,
   doc,
   getDoc,
-  getDocs,
-  deleteDoc,
-  updateDoc,
-  setDoc
 } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+import {
+  getAuth,
+  onAuthStateChanged,
+} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyBrQFNipW61jkC6zZp-vSQ3dq8p59QTHb4",
+  authDomain: "auralis-30f77.firebaseapp.com",
+  projectId: "auralis-30f77",
+  storageBucket: "auralis-30f77.appspot.com",
+  messagingSenderId: "534550869579",
+  appId: "1:534550869579:web:31f98ebff69d25e50e3fce"
+};
 
- const firebaseConfig = {
-    apiKey: "AIzaSyBrQFNipW61jkC6zZp-vSQ3dq8p59QTHb4",
-    authDomain: "auralis-30f77.firebaseapp.com",
-    projectId: "auralis-30f77",
-    storageBucket: "auralis-30f77.firebasestorage.app",
-    messagingSenderId: "534550869579",
-    appId: "1:534550869579:web:31f98ebff69d25e50e3fce"
-  };
-
-
-  const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const DB = getFirestore(app);
 
-let currentUserData;
-let currentUserUID; // store UID separately
+let currentUserUID = null;
+let currentUserData = null;
 
-// DOM Elements
-const bookButtonEl = document.getElementById("bookAppointment");
-const patientNameEl = document.getElementById("patient-name");
-const dateEl = document.getElementById("date");
-const timeEl = document.getElementById("time");
-const reasonEl = document.getElementById("reason");
-const genderEl = document.getElementById("gender");
-const doctorEl = document.getElementById("doctors-name");
-
-// Auth listener
+// ---------------------- AUTH CHECK ----------------------
 onAuthStateChanged(auth, async (user) => {
   if (user) {
-    currentUserUID = user.uid; // save UID
-    const docRef = doc(DB, "user", user.uid); // fix: no need for userColRef
-    const userCredential = await getDoc(docRef);
-    currentUserData = userCredential.data(); // store user profile data
-    console.log("Current user data:", currentUserData);
+    currentUserUID = user.uid;
+    const userDoc = await getDoc(doc(DB, "user", currentUserUID));
+    currentUserData = userDoc.data();
+    console.log("Authenticated as:", currentUserData?.name || "User");
   } else {
-    console.log("No user is signed in");
-    currentUserData = null;
-    currentUserUID = null;
-    window.location.href = "../pages/signin.html"; // optionally redirect
+    window.location.href = "../pages/signin.html";
   }
 });
 
-// Book appointment function
-const bookAppointment = async () => {
-  console.log("Booking appointment...");
-  bookButtonEl.disabled = true;
-  bookButtonEl.textContent = "Booking...";
+// ---------------------- BOOK APPOINTMENT ----------------------
+const bookBtn = document.getElementById("bookAppointment");
+bookBtn.addEventListener("click", async (e) => {
+  e.preventDefault();
 
-  if (!currentUserUID) {
-    alert("User not authenticated.");
+  const patientName = document.getElementById("patient-name").value.trim();
+  const doctorName = document.getElementById("doctors-name").value.trim();
+  const date = document.getElementById("date").value;
+  const time = document.getElementById("time").value;
+  const reason = document.getElementById("reason").value.trim();
+  const gender = document.getElementById("gender").value;
+
+  if (!patientName || !doctorName || !date || !time || !reason || gender === "gender") {
+    Swal.fire("Error", "All fields are required.", "error");
     return;
   }
 
   const appointmentData = {
     userId: currentUserUID,
-    patientName: patientNameEl.value,
-    date: dateEl.value,
-    time: timeEl.value,
-    reason: reasonEl.value,
-    gender: genderEl.value,
-    doctorName: doctorEl.value,
-    // status: "pending",
-    // createdAt: new Date()
+    patientName,
+    doctorName,
+    date,
+    time,
+    reason,
+    gender
   };
 
   try {
-    const appointmentColRef = collection(DB, "user", currentUserUID, "appointments");
-    const docSnapShot = await addDoc(appointmentColRef, appointmentData);
-    console.log("Appointment booked successfully:", docSnapShot.id);
-    Swal.fire({
-      text: "You Have Booked an Appointment Successfully",
-      icon: "success",
-   })
-   setTimeout(() => {
-      location.href = `../pages/appoinment.html?id=${currentUserUID}`;
-     }, 3000);
-   
-  } catch (error) {
-    console.error("Error booking appointment:", error);
-    alert("Error booking appointment. Please try again.");
-  } finally {
-    bookButtonEl.textContent = "Book Appointment";
-    bookButtonEl.disabled = false;
-  }
-};
+    bookBtn.disabled = true;
+    bookBtn.textContent = "Booking...";
 
-bookButtonEl.addEventListener("click", (e) => {
-  e.preventDefault();
-  bookAppointment();
+    const appointmentRef = collection(DB, "user", currentUserUID, "appointments");
+    await addDoc(appointmentRef, appointmentData);
+
+    Swal.fire("Success", "Appointment booked successfully!", "success");
+
+    setTimeout(() => {
+      location.href = "./appoinment.html";
+    }, 2000);
+  } catch (error) {
+    console.error("Booking failed:", error);
+    Swal.fire("Error", "Something went wrong. Try again.", "error");
+  } finally {
+    bookBtn.disabled = false;
+    bookBtn.textContent = "Book";
+  }
+});
+
+// === DARK/LIGHT MODE TOGGLE ===
+const themeToggleBtn = document.getElementById("theme-toggle");
+const body = document.body;
+
+// Load saved preference
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") {
+  body.classList.add("dark-mode");
+  themeToggleBtn.innerHTML = `<i class="fa-solid fa-sun"></i> Light`;
+}
+
+// Toggle theme
+themeToggleBtn.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
+  const isDark = body.classList.contains("dark-mode");
+
+  themeToggleBtn.innerHTML = isDark
+    ? `<i class="fa-solid fa-sun"></i> Light`
+    : `<i class="fa-solid fa-moon"></i> Dark`;
+
+  localStorage.setItem("theme", isDark ? "dark" : "light");
 });
