@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Appointment History</title>
-  <link rel="stylesheet" href="../styles/history.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../styles/history.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
+    body.dark-mode .alert,
+    body.dark-mode .nav-tabs .nav-link {
+      /* background-color: #222; */
+      color: #ccc;
+    }
+
+    .nav-tabs .nav-link.active {
+      background-color: #0d6efd;
+      color: #fff;
+      border-color: #dee2e6 #dee2e6 #fff;
+    }
+
+    .nav-tabs .nav-link {
+      color: #0d6efd;
+    }
     body.dark-mode {
     background-color: #121212;
     color: #ffffff;
-  }
-  body.dark-mode .col-ref {
-    background-color: #1e1e1e;
-  }
-  .alert {
-    transition: 0.3s ease;
   }
   body.dark-mode .card {
     background-color: #1e1e1e;
     color: white;
   }
-  
-  body.dark-mode .alert {
-    background-color: #222;
-    color: #ccc;
-  }
-  body.dark-mode #upcoming-appointments {
-    /* background-color: #222; */
-    color: #ccc;
-  }
-
   </style>
 </head>
 <body>
+  <!-- Navigation -->
    <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="./dashboard.html"><i class="fa-solid fa-house"></i>Dashboard</a>
@@ -64,72 +64,89 @@
   </div>
   </nav>
 
-  <main class="main-content" id="main-content">
-      <div class="hearder">
-        <h1 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; text-align: center;">Appointment History</h1>
-      </div><br><br>
-      <div id="history-container" class="doc-con">
-        <!-- Appointment cards will be dynamically inserted here -->
-     </div>
-    </main>
+  <!-- Page Header -->
+  <main class="main-content p-3">
+    <div class="text-center mb-4">
+      <h1 style="font-family: 'Trebuchet MS', sans-serif;">Appointment History</h1>
+    </div>
 
+    <!-- TABS for Appointment Status -->
+    <div class="container">
+      <ul class="nav nav-tabs" id="historyTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="upcoming-tab-btn" data-bs-toggle="tab" data-bs-target="#upcoming-tab" type="button" role="tab">Upcoming</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="completed-tab-btn" data-bs-toggle="tab" data-bs-target="#completed-tab" type="button" role="tab">Completed</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="cancelled-tab-btn" data-bs-toggle="tab" data-bs-target="#cancelled-tab" type="button" role="tab">Cancelled</button>
+        </li>
+      </ul>
 
-
-    <!-- Edit Appointment Modal -->
-<div class="modal fade" id="editAppointmentModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="editModalLabel">Edit Appointment</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="tab-content mt-4" id="history-tab-content">
+        <div class="tab-pane fade show active" id="upcoming-tab" role="tabpanel"></div>
+        <div class="tab-pane fade" id="completed-tab" role="tabpanel"></div>
+        <div class="tab-pane fade" id="cancelled-tab" role="tabpanel"></div>
       </div>
-      <div class="modal-body">
-        <form id="edit-appointment-form">
-          <input type="hidden" id="edit-doc-id">
-          <div class="mb-3">
-            <label for="edit-patient-name" class="form-label">Patient Name</label>
-            <input type="text" class="form-control" id="edit-patient-name" required>
-          </div>
-          <div class="mb-3">
-            <label for="edit-date" class="form-label">Date</label>
-            <input type="date" class="form-control" id="edit-date" required>
-          </div>
-          <div class="mb-3">
-            <label for="edit-time" class="form-label">Time</label>
-            <input type="time" class="form-control" id="edit-time" required>
-          </div>
-          <div class="mb-3">
-            <label for="edit-reason" class="form-label">Reason</label>
-            <textarea class="form-control" id="edit-reason" rows="3" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary w-100">Save Changes</button>
-        </form>
+    </div>
+  </main>
+
+  <!-- Edit Appointment Modal -->
+  <div class="modal fade" id="editAppointmentModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Edit Appointment</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="edit-appointment-form">
+            <input type="hidden" id="edit-doc-id" />
+            <div class="mb-3">
+              <label for="edit-patient-name" class="form-label">Patient Name</label>
+              <input type="text" class="form-control" id="edit-patient-name" required />
+            </div>
+            <div class="mb-3">
+              <label for="edit-date" class="form-label">Date</label>
+              <input type="date" class="form-control" id="edit-date" required />
+            </div>
+            <div class="mb-3">
+              <label for="edit-time" class="form-label">Time</label>
+              <input type="time" class="form-control" id="edit-time" required />
+            </div>
+            <div class="mb-3">
+              <label for="edit-reason" class="form-label">Reason</label>
+              <textarea class="form-control" id="edit-reason" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Save Changes</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Delete Confirmation Modal -->
-<div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header bg-danger text-white">
-        <h5 class="modal-title" id="deleteConfirmLabel">Cancel Appointment</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you sure you want to cancel this appointment?
-        <input type="hidden" id="delete-doc-id">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        <button type="button" class="btn btn-danger" id="confirm-delete-btn">Yes, Cancel</button>
+  <!-- Delete Confirmation Modal -->
+  <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="deleteConfirmLabel">Cancel Appointment</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to cancel this appointment?
+          <input type="hidden" id="delete-doc-id" />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+          <button type="button" class="btn btn-danger" id="confirm-delete-btn">Yes, Cancel</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-
+  <!-- Scripts -->
   <script type="module" src="../javascript/history.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

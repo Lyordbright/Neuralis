@@ -41,7 +41,7 @@ onAuthStateChanged(auth, async (user) => {
     }
 
     const currentUser = userSnap.data();
-    console.log("Loaded user:", currentUser);
+    // console.log("Loaded user:", currentUser);
 
     // Greeting
     greetingEl.innerHTML = `<h2 class="fw-bold">Welcome, ${currentUser.name || "User"}!</h2>`;
@@ -57,8 +57,8 @@ onAuthStateChanged(auth, async (user) => {
         <div class="col-md-6"><strong>Gender:</strong><p>${currentUser.gender}</p></div>
         <div class="col-md-6"><strong>Allergies:</strong><p>${currentUser.allergies}</p></div>
         <div class="col-md-6"><strong>Address:</strong><p>${currentUser.address}</p></div>
-        <div class="col-md-6"><strong>Emergency Contact Name:</strong><p>${currentUser.emmergencyContact}</p></div>
-        <div class="col-md-6"><strong>Emergency Contact Number:</strong><p>${currentUser.emergencyNumber}</p></div>
+        <div class="col-md-6"><strong>Emergency Contact Name:</strong><p>${currentUser.emergencyContactName}</p></div>
+        <div class="col-md-6"><strong>Emergency Contact Number:</strong><p>${currentUser.emergencyContactNumber}</p></div>
       </div>
     `;
 
@@ -70,11 +70,11 @@ onAuthStateChanged(auth, async (user) => {
     document.getElementById("editGender").value = currentUser.gender || "";
     document.getElementById("editAllergies").value = currentUser.allergies || "";
     document.getElementById("editAddress").value = currentUser.address || "";
-    document.getElementById("editEmergencyName").value = currentUser.emmergencyContact || "";
-    document.getElementById("editEmergencyNumber").value = currentUser.emergencyNumber || "";
+    document.getElementById("editEmergencyName").value = currentUser.emergencyContactName || "";
+    document.getElementById("editEmergencyNumber").value = currentUser.emergencyContactNumber || "";
   } else {
-    console.log("User not signed in");
-    window.location.href = "../pages/signin.html";
+    // console.log("User not signed in");
+    window.location.href = "../index.html";
   }
 });
 
@@ -90,8 +90,8 @@ form.addEventListener("submit", async (e) => {
     gender: document.getElementById("editGender").value,
     allergies: document.getElementById("editAllergies").value,
     address: document.getElementById("editAddress").value,
-    emmergencyContact: document.getElementById("editEmergencyName").value,
-    emergencyNumber: document.getElementById("editEmergencyNumber").value,
+    emergencyContactName: document.getElementById("editEmergencyName").value,
+    emergencyContactNumber: document.getElementById("editEmergencyNumber").value,
   };
 
   try {
@@ -105,7 +105,7 @@ form.addEventListener("submit", async (e) => {
      location.reload();
      }, 3000);
   } catch (error) {
-    console.error("Failed to update profile:", error);
+    // console.error("Failed to update profile:", error);
     alert("An error occurred while updating your profile.");
   }
 });

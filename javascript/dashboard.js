@@ -44,7 +44,7 @@ import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/
   } else if (hour >= 16 && hour < 20) {
    timeGreeting = "Good evening";
   } else {
-   timeGreeting = "Good night"; 
+   timeGreeting = "Good evening"; 
  }
 
 
@@ -53,14 +53,14 @@ import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/
   let currentUser;
   onAuthStateChanged(auth, async (user) =>{
     if(user){
-      console.log(user.uid)
+      // console.log(user.uid)
       const docRef = doc(userColRef, user.uid)
       const userCredential = await getDoc(docRef);
       currentUser = userCredential.data();
-      console.log(currentUser);
+      // console.log(currentUser);
       greetingEl.innerHTML = `<h1>${timeGreeting}, ${currentUser.name || "User"}!</h1>`; 
     }else{
-      console.log("No user is signed in.");
+      // console.log("No user is signed in.");
       window.location.href = "../pages/signin.html";
     }
   })
@@ -94,7 +94,7 @@ function showGreeting(name) {
   if (hour >= 5 && hour < 12) timeGreeting = "Good morning";
   else if (hour >= 12 && hour < 17) timeGreeting = "Good afternoon";
   else if (hour >= 17 && hour < 21) timeGreeting = "Good evening";
-  else timeGreeting = "Good night";
+  else timeGreeting = "Good evening";
 
   greetingEl.innerHTML = `<h2>${timeGreeting}, ${name}!</h2>`;
 }
@@ -122,11 +122,10 @@ async function loadAppointments(uid) {
       upcomingEl.innerHTML += `
         <div class="col-md-4">
           <div class="card shadow-sm p-3">
-            <h5>${data.doctorName || "Unknown Doctor"}</h5>
-            <p><strong>Patient:</strong> ${data.patientName}</p>
+            <h5>${data.patientName || "Unknown Doctor"}</h5>
+            <p><strong>Doctor:</strong> ${data.doctorName}</p>
             <p><strong>Date:</strong> ${data.date}</p>
             <p><strong>Time:</strong> ${data.time}</p>
-            <p><strong>Status:</strong> ${data.status || "Pending"}</p>
           </div>
         </div>
       `;

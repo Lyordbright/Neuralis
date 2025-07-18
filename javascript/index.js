@@ -3,4 +3,4 @@ function toggleMenu() {
  nav.style.display = (nav.style.display === 'none' || nav.style.display === '') ? 'block' : 'none';
 }
 
-console.log(toggleMenu);
+// console.log(toggleMenu);

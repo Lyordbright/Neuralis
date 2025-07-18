@@ -63,7 +63,7 @@ onAuthStateChanged(auth, async (user) => {
     currentUserUID = user.uid;
     const userDoc = await getDoc(doc(DB, "user", currentUserUID));
     currentUserData = userDoc.data();
-    console.log("Authenticated as:", currentUserData?.name || "User");
+    // console.log("Authenticated as:", currentUserData?.name || "User");
   } else {
     window.location.href = "../pages/signin.html";
   }
@@ -109,7 +109,7 @@ bookBtn.addEventListener("click", async (e) => {
       location.href = "./appoinment.html";
     }, 2000);
   } catch (error) {
-    console.error("Booking failed:", error);
+    // console.error("Booking failed:", error);
     Swal.fire("Error", "Something went wrong. Try again.", "error");
   } finally {
     bookBtn.disabled = false;

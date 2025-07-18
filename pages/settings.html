@@ -72,7 +72,7 @@
       <h5 class="mb-3 text-danger">Log Out</h5>
       <button class="btn btn-danger" id="logOutBtn"><i class="fa-solid fa-right-from-bracket"></i> Log Out</button>
     </div>
-  </div>
+
     <div class="card p-4 shadow-sm mb-4 border-danger">
       <h5 class="mb-3 text-danger">Danger Zone</h5>
       <button class="btn btn-danger" id="deleteAccountBtn"><i class="fa-solid fa-trash"></i> Delete My Account</button>
@@ -128,7 +128,7 @@
           userEmailEl.textContent = user.email;
         }
       } else {
-        window.location.href = "../pages/signin.html";
+        window.location.href = "../index.html";
       }
     });
 
@@ -161,7 +161,7 @@
         window.location.href = "../index.html";
       } catch (error) {
         Swal.fire("Error", "Failed to log out. Try again.", "error");
-        console.error("Sign out error:", error);
+        // console.error("Sign out error:", error);
       }
     }
   });
